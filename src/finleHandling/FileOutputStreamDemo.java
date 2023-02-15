@@ -14,6 +14,7 @@ public class FileOutputStreamDemo {
             byte[] arr = msg.getBytes();
             fos.write(arr);
             fos.close();
+
         }catch (IOException e ){
             System.out.println(e.getMessage());
         }
