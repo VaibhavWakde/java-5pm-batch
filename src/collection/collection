@@ -1,0 +1,36 @@
+how does hashmap internally work in javaA HashMap is an implementation of the Map interface in Java,
+which stores key-value pairs in a hash table. When you put an element into a HashMap,
+it uses the key's hash code to determine the index of the bucket where the element should be stored.
+Here's an overview of how a HashMap works internally:
+
+    Hashing: When a key is passed to a HashMap, its hash code is calculated using the key's hashCode() method.
+     The hash code is used to find the index of the bucket where the key-value pair should be stored.
+
+
+    Bucket storage: The HashMap is an array of linked lists, where each element in the array is a linked list.
+     The index of the array is the hash code of the key modulo the size of the array.
+     If there is already an element in the bucket, then the new element is added to the linked list at that
+      bucket.
+
+
+    Collision resolution: Since multiple keys can have the same hash code, collisions can occur
+    when two or more keys are assigned to the same bucket.
+    In such cases, a new node is added to the linked list for that bucket,
+    and the key-value pair is added to the new node.
+
+
+    Retrieval: When you want to retrieve a value from a HashMap, the key is hashed to
+    find the index of the bucket where the value is stored. If there is more than one key in the bucket,
+    then the linked list is searched for the matching key.
+
+
+    Resize: When the number of elements in the HashMap grows beyond a certain threshold,
+    the HashMap is resized. The resizing involves creating a new array of larger size,
+    and then copying all the elements from the old array to the new array.
+    The new size of the array is usually double the old size.
+
+
+HashMap provides a constant time complexity for basic operations like get() and put() in the average case.
+However, the performance of the HashMap can degrade if there are too many collisions.
+Therefore, it is important to choose a good hashing function and an appropriate load factor
+to ensure that the HashMap performs well.
